@@ -99,6 +99,76 @@
       section {
         padding: 1.5rem;
       }
+
+#ai-james-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+#ai-james-header {
+  background: #1f2937;
+  color: #ffffff;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#ai-james-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.ai-message {
+  margin-bottom: 8px;
+}
+
+.ai-user {
+  text-align: right;
+  color: #2563eb;
+}
+
+.ai-bot {
+  text-align: left;
+  color: #111827;
+}
+
+#ai-james-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+#ai-james-text {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  outline: none;
+}
+
+#ai-james-send {
+  padding: 8px 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#ai-james-send:hover {
+  background: #1d4ed8;
+}
+      
     }
   </style>
 </head>
