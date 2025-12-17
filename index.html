@@ -258,6 +258,47 @@
   </div>
 </div>
 
+<script>
+const messagesDiv = document.getElementById("ai-james-messages");
+const input = document.getElementById("ai-james-text");
+const sendBtn = document.getElementById("ai-james-send");
+
+function addMessage(text, sender) {
+  const div = document.createElement("div");
+  div.className = `ai-message ai-${sender}`;
+  div.innerText = text;
+  messagesDiv.appendChild(div);
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+sendBtn.addEventListener("click", sendMessage);
+input.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendMessage();
+});
+
+function sendMessage() {
+  const text = input.value.trim();
+  if (!text) return;
+
+  addMessage(text, "user");
+  input.value = "";
+
+  fetch("http://localhost:3000/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: text })
+  })
+  .then(res => res.json())
+  .then(data => {
+    addMessage(data.reply, "bot");
+  })
+  .catch(() => {
+    addMessage("AI-James is currently offline.", "bot");
+  });
+}
+</script>
+
+  
   <!--
     A floating chat widget and JavaScript client will be injected here
     when AI-James is connected to the backend (OpenAI / custom API).
