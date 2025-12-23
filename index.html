@@ -283,7 +283,7 @@ function sendMessage() {
   addMessage(text, "user");
   input.value = "";
 
-  fetch("http://localhost:3000/chat", {
+  fetch("https//ai-james-backend-production.up.railway.app/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: text })
